@@ -23,7 +23,11 @@ public class ServletFilter extends HttpFilter implements Filter {
 		
 		ServletContext sCtx = getServletContext();
 		Integer hitCount = (Integer) sCtx.getAttribute("hitCounter");
+
 		System.out.println("Hi i am rishi");
+
+		System.out.println("Hi i am shantanu salvi");
+
 		if(hitCount == null) {
 			hitCount = 0;
 		}
