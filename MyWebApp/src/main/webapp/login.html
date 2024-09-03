@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="login">
+		Enter Username : <input type="text" name="uname" /><br />
+		Enter password : <input type="password" name="pwd"><br />
+		<input type="checkbox" name="remember" value="y"> Remember me
+		<br>
+		<img alt="captcha" src="captcha.jpg">
+		<input type="text" name="captcha" >
+		<br>
+		<button type="submit">Login</button> 
+		<div id="msg"></div>
+	</form>
+	<script>
+		function getParameterByName(name) {
+		    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+		    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+		}
+		var error = getParameterByName("error");
+		if(error && error == 1){
+			document.getElementById("msg").innerHTML = "<h3>Invalid Credentials</h3>";
+		}
+		if(error && error == 2){
+			document.getElementById("msg").innerHTML = "<h3>Invalid Captcha</h3>";
+		}
+	</script>
+</body>
+</html>
